@@ -5,3 +5,13 @@
 // який створений у файлі index.html
 // Запустити програму за допомогою Live Server
 // Перевірити за допомогою команди npm tests/task1.test.js 
+
+const clasList = document.querySelector('.usersList');
+
+const userInfo = fetch('https://jsonplaceholder.typicode.com/users')
+                    .then(res => res.json())
+                    .then(data => data.forEach((el) => {
+                        clasList.innerHTML += `
+                        <li>${el.name}</li>
+                        `
+                    }))
